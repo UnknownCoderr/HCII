@@ -53,3 +53,22 @@ D:\HCI---project2\HCI\HCI Main\HCI Main\obj\Debug\HCI Main.csproj.CoreCompileInp
 D:\HCI---project2\HCI\HCI Main\HCI Main\obj\Debug\HCI Main.exe
 D:\HCI---project2\HCI\HCI Main\HCI Main\obj\Debug\HCI Main.pdb
 D:\HCI---project2\HCI\HCI Main\HCI Main\obj\Debug\HCI_Main.Camera_Screen.resources
+D:\HCII\HCI Main\HCI Main\bin\Debug\HCI Main.exe.config
+D:\HCII\HCI Main\HCI Main\bin\Debug\HCI Main.exe
+D:\HCII\HCI Main\HCI Main\bin\Debug\HCI Main.pdb
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.csproj.AssemblyReference.cache
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.csproj.SuggestedBindingRedirects.cache
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Camera_Screen.resources
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Drowning_detect.resources
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Form1.resources
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Form2.resources
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Properties.Resources.resources
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Swim_Classification.resources
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.csproj.GenerateResource.cache
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.csproj.CoreCompileInputs.cache
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.exe
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.pdb
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.SignUp.resources
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Account_Settings.resources
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Change_Pass.resources
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Change_Passowrd.resources

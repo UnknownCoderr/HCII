@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account Settings.Designer.cs">
+      <DependentUpon>Account Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Camera Screen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Camera Screen.Designer.cs">
       <DependentUpon>Camera Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Change Username.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Change Username.Designer.cs">
+      <DependentUpon>Change Username.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Change Passowrd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Change Passowrd.Designer.cs">
+      <DependentUpon>Change Passowrd.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="Drowning detect.cs">
@@ -71,6 +89,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginCheck.cs" />
     <Compile Include="NewFolder1\OSCBundle.cs" />
     <Compile Include="NewFolder1\OSCMessage.cs" />
     <Compile Include="NewFolder1\OSCPacket.cs" />
@@ -79,6 +98,17 @@
     <Compile Include="NewFolder1\OSCTransmitter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Swim Classification.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +123,17 @@
     <Compile Include="TUIO\TuioObject.cs" />
     <Compile Include="TUIO\TuioPoint.cs" />
     <Compile Include="TUIO\TuioTime.cs" />
+    <EmbeddedResource Include="Account Settings.resx">
+      <DependentUpon>Account Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Camera Screen.resx">
       <DependentUpon>Camera Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Change Username.resx">
+      <DependentUpon>Change Username.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Change Passowrd.resx">
+      <DependentUpon>Change Passowrd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Drowning detect.resx">
       <DependentUpon>Drowning detect.cs</DependentUpon>
@@ -107,14 +146,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Swim Classification.resx">
       <DependentUpon>Swim Classification.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +176,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\360_F_284510103_OBExEAqiP3VDMMqOCQ3pTki0aVHxZ6Pn-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\output-onlinepngtools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-icon-2048x2046-cw28eevx.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -118,5 +118,10 @@ namespace HCI_Main
             Process.Start("https://mail.google.com/");
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Account_Settings f = new Account_Settings();            
+            f.ShowDialog();            
+        }
     }
 }
