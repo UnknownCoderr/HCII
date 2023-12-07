@@ -78,7 +78,6 @@ namespace HCI_Main
             if (!userCredentials.ContainsKey(oldUsername))
             {
                 Console.WriteLine("Username does not exist. Unable to modify credentials.");
-                return;
             }
            
             string password = userCredentials[oldUsername];            
