@@ -20,14 +20,30 @@ namespace HCI_Main
         private Dictionary<long, TuioBlob> blobList;
         public Dictionary<long, TuioObject> newobject;
         private bool verbose;
+        public static int width, height;
+        private int window_width = 640;
+        private int window_height = 480;
+        private int window_left = 0;
+        private int window_top = 0;
+        private int screen_width = Screen.PrimaryScreen.Bounds.Width;
+        private int screen_height = Screen.PrimaryScreen.Bounds.Height;
         bool msg = false;
         bool msg2 = false;
+        private bool fullscreen;
+        Font font = new Font("Arial", 10.0f);
+        SolidBrush fntBrush = new SolidBrush(Color.White);
+        SolidBrush bgrBrush = new SolidBrush(Color.FromArgb(0, 0, 64));
+        SolidBrush curBrush = new SolidBrush(Color.FromArgb(192, 0, 192));
+        SolidBrush objBrush = new SolidBrush(Color.FromArgb(64, 0, 0));
+        SolidBrush blbBrush = new SolidBrush(Color.FromArgb(64, 64, 64));
+        Pen curPen = new Pen(new SolidBrush(Color.Blue), 1);
 
         public Drowning_detect()
         {
             InitializeComponent();
             verbose = false;
-
+            width = window_width;
+            height = window_height;
             this.SetStyle(ControlStyles.AllPaintingInWmPaint |
                             ControlStyles.UserPaint |
                             ControlStyles.DoubleBuffer, true);
@@ -37,6 +53,7 @@ namespace HCI_Main
             blobList = new Dictionary<long, TuioBlob>(128);
 
             client = new TuioClient(3333);
+            this.KeyDown += new KeyEventHandler(Form_KeyDown);
             client.addTuioListener(this);
             this.Load += Drowning_detect_Load;
             client.connect();
@@ -45,6 +62,54 @@ namespace HCI_Main
         private void Drowning_detect_Load(object sender, EventArgs e)
         {
             Process.Start("C:/Users/Ammar Wael/Desktop/HCI/HCI Main/HCI Main/bin/Debug/reacTIVision.exe");
+        }
+        private void Form_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.F1)
+            {
+                if (fullscreen == false)
+                {
+
+                    width = screen_width;
+                    height = screen_height;
+
+                    window_left = this.Left;
+                    window_top = this.Top;
+
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    this.Left = 0;
+                    this.Top = 0;
+                    this.Width = screen_width;
+                    this.Height = screen_height;
+
+                    fullscreen = true;
+                }
+                else
+                {
+
+                    width = window_width;
+                    height = window_height;
+
+                    this.FormBorderStyle = FormBorderStyle.Sizable;
+                    this.Left = window_left;
+                    this.Top = window_top;
+                    this.Width = window_width;
+                    this.Height = window_height;
+
+                    fullscreen = false;
+                }
+            }
+            else if (e.KeyData == Keys.Escape)
+            {
+                this.Close();
+
+            }
+            else if (e.KeyData == Keys.V)
+            {
+                verbose = !verbose;
+            }
+
         }
 
         public void addTuioObject(TuioObject o)
@@ -144,7 +209,8 @@ namespace HCI_Main
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
             // Getting the graphics object
-            
+            Graphics g = pevent.Graphics;
+            g.FillRectangle(bgrBrush, new Rectangle(0, 0, width, height));
             // draw the cursor path
             if (cursorList.Count > 0)
             {
@@ -165,7 +231,7 @@ namespace HCI_Main
             }
 
             // draw the objects
-            if (objectList.Count > 0)
+            /*if (objectList.Count > 0)
             {
                 lock (objectList)
                 {
@@ -174,7 +240,7 @@ namespace HCI_Main
                         int ox = tobj.getScreenX(this.ClientSize.Width);
                         int oy = tobj.getScreenY(this.ClientSize.Height);
                         int size = this.ClientSize.Height / 10;
-/*
+*//*
                         if (tobj.SymbolID.Equals(0))
                         {
                             tobj.Name = "momen";
@@ -242,10 +308,36 @@ namespace HCI_Main
                             PictureBox img = new PictureBox();
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             this.pictureBox1.Image = new Bitmap("Gomaa.jpg");
-                        }*/
+                        }*//*
+                    }
+                }
+            }*/
+            if (objectList.Count > 0)
+            {
+                lock (objectList)
+                {
+                    foreach (TuioObject tobj in objectList.Values)
+                    {
+                        int ox = tobj.getScreenX(width);
+                        int oy = tobj.getScreenY(height);
+                        int size = height / 10;
+
+                        g.TranslateTransform(ox, oy);
+                        g.RotateTransform((float)(tobj.Angle / Math.PI * 180.0f));
+                        g.TranslateTransform(-ox, -oy);
+
+                        g.FillRectangle(objBrush, new Rectangle(ox - size / 2 + 15, oy - size / 2, size, size));
+
+
+                        g.TranslateTransform(ox, oy);
+                        g.RotateTransform(-1 * (float)(tobj.Angle / Math.PI * 180.0f));
+                        g.TranslateTransform(-ox, -oy);
+
+                        g.DrawString(tobj.Name + "", font, fntBrush, new PointF(ox - 10, oy - 10));
                     }
                 }
             }
+
             //else
             //{
             //    label1.Text = "No one Identified";
