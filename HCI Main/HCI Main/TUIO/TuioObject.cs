@@ -39,7 +39,7 @@ namespace TUIO
          * <summary>
          * The individual symbol ID number that is assigned to each TuioObject.</summary>
          */
-        protected int symbol_id;
+        public int symbol_id;
 
         /**
          * <summary>

@@ -72,3 +72,20 @@ D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.SignUp.resources
 D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Account_Settings.resources
 D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Change_Pass.resources
 D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Change_Passowrd.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\bin\Debug\HCI Main.exe.config
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\bin\Debug\HCI Main.exe
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.csproj.AssemblyReference.cache
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Account_Settings.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Camera_Screen.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Change_Pass.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Change_Passowrd.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Drowning_detect.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Form1.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Form2.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Properties.Resources.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.SignUp.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Swim_Classification.resources
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.csproj.GenerateResource.cache
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.csproj.CoreCompileInputs.cache
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.exe
+C:\Users\3m\OneDrive\Documents\GitHub\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.pdb

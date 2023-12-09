@@ -20,6 +20,8 @@ namespace HCI_Main
         private Dictionary<long, TuioBlob> blobList;
         public Dictionary<long, TuioObject> newobject;
         private bool verbose;
+        bool msg = false;
+        bool msg2 = false;
 
         public Drowning_detect()
         {
@@ -56,7 +58,26 @@ namespace HCI_Main
 
         public void updateTuioObject(TuioObject o)
         {
-           
+            int rotationangel = (int)Math.Round(o.Angle) * 10;
+
+            if (o.SymbolID.Equals(0))
+            {
+
+                o.Name = "momen";
+
+            }
+            if (rotationangel == 10 && !msg)
+            {
+                MessageBox.Show("next");
+                msg = true;
+                msg2 = false;
+            }
+            if (rotationangel == 50 && !msg2)
+            {
+                MessageBox.Show("previous");
+                msg2 = true;
+                msg = false;
+            }
         }
 
         public void removeTuioObject(TuioObject o)
@@ -104,6 +125,7 @@ namespace HCI_Main
         {
 
             if (verbose) Console.WriteLine("set blb " + b.BlobID + " (" + b.SessionID + ") " + b.X + " " + b.Y + " " + b.Angle + " " + b.Width + " " + b.Height + " " + b.Area + " " + b.MotionSpeed + " " + b.RotationSpeed + " " + b.MotionAccel + " " + b.RotationAccel);
+            
         }
 
         public void removeTuioBlob(TuioBlob b)
@@ -152,7 +174,7 @@ namespace HCI_Main
                         int ox = tobj.getScreenX(this.ClientSize.Width);
                         int oy = tobj.getScreenY(this.ClientSize.Height);
                         int size = this.ClientSize.Height / 10;
-
+/*
                         if (tobj.SymbolID.Equals(0))
                         {
                             tobj.Name = "momen";
@@ -220,7 +242,7 @@ namespace HCI_Main
                             PictureBox img = new PictureBox();
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             this.pictureBox1.Image = new Bitmap("Gomaa.jpg");
-                        }
+                        }*/
                     }
                 }
             }
