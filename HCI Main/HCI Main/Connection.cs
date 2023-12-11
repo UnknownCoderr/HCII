@@ -22,7 +22,7 @@ namespace HCI_Main
             {
                 tcpClient = new TcpClient(host, portNumber);
                 stream = tcpClient.GetStream();
-                Console.WriteLine("Connection Made ! with " + host);
+                Console.WriteLine("Connection Made ! with " + host + portNumber);
                 isConnected = true;
                 return true;
             }

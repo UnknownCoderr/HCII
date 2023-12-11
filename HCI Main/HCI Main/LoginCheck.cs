@@ -64,7 +64,7 @@ namespace HCI_Main
 
         public void SaveCredentials2()
         {
-            using (StreamWriter writer = new StreamWriter("credentials.txt", true))
+            using (StreamWriter writer = new StreamWriter("credentials.txt"))
             {
                 foreach (var kvp in userCredentials)
                 {
@@ -73,17 +73,50 @@ namespace HCI_Main
             }
         }
 
-        public void ModifyUsername(string oldUsername, string newUsername)
-        {           
+        public void ChangeUsername(string oldUsername, string newUsername)
+        {            
             if (!userCredentials.ContainsKey(oldUsername))
             {
-                Console.WriteLine("Username does not exist. Unable to modify credentials.");
+                MessageBox.Show("Username does not exist. Unable to modify username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-           
-            string password = userCredentials[oldUsername];            
+            
+            string password = userCredentials[oldUsername];
+            
+            if (oldUsername == newUsername)
+            {
+                MessageBox.Show("Username remains the same. No changes made.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            
+            if (userCredentials.ContainsKey(newUsername))
+            {
+                MessageBox.Show("New username already exists. Please choose a different username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
             userCredentials.Remove(oldUsername);
-            userCredentials[newUsername] = password;            
+            userCredentials[newUsername] = password;
+            
             SaveCredentials2();
+
+            MessageBox.Show("Username modified successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void ChangePassword(string username, string newPassword)
+        {            
+            if (userCredentials.ContainsKey(username))
+            {                
+                userCredentials[username] = newPassword;
+                
+                SaveCredentials2();
+
+                MessageBox.Show("Password changed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Username does not exist. Unable to change password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }

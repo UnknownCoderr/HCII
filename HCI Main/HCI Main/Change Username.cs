@@ -21,7 +21,7 @@ namespace HCI_Main
         private void button1_Click(object sender, EventArgs e)
         {           
             lgin.LoadCredentials();            
-            lgin.ModifyUsername("oldUsername", "newUsername");
+            lgin.ChangeUsername(textBox1.Text, textBox2.Text);
         }
     }
 }

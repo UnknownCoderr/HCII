@@ -115,13 +115,29 @@ namespace HCI_Main
 
         private void label2_Click_1(object sender, EventArgs e)
         {
-            Process.Start("https://mail.google.com/");
+            string email = "ammarwael73@gmail.com";
+            string mailtoUri = $"mailto:{email}";
+
+            try
+            {
+                Process.Start(new ProcessStartInfo(mailtoUri));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening email client: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
             Account_Settings f = new Account_Settings();            
             f.ShowDialog();            
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Account_Settings f = new Account_Settings();
+            f.ShowDialog();
         }
     }
 }
