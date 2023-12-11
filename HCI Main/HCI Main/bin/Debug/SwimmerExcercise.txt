@@ -1,0 +1,9 @@
+Swimmer4 , 2 , Butterfly Swimming
+Swimmer4 , 2 , Backstroke Swimming
+Swimmer4 , 2 , Backstroke Swimming
+Swimmer5 , 2 , Backstroke Swimming
+Swimmer4 , 2 , Backstroke Swimming
+Swimmer5 , 2 , Backstroke Swimming
+Swimmer5 , 20 , Butterfly Swimming
+Swimmer2 , 5 , Butterfly Swimming
+Swimmer3 , 5 , Backstroke Swimming

@@ -139,5 +139,10 @@ namespace HCI_Main
             Account_Settings f = new Account_Settings();
             f.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenForm(new View_Assigned_training());
+        }
     }
 }

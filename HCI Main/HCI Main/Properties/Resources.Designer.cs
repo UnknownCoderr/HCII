@@ -63,6 +63,16 @@ namespace HCI_Main.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _0_4x_wKN1TiAUhkm_A {
+            get {
+                object obj = ResourceManager.GetObject("0_4x_wKN1TiAUhkm_A", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _360_F_284509995_lIzXsJx7sgviNWghb1SKZI9W04KrmfLN {
             get {
                 object obj = ResourceManager.GetObject("360_F_284509995_lIzXsJx7sgviNWghb1SKZI9W04KrmfLN", resourceCulture);
@@ -96,6 +106,46 @@ namespace HCI_Main.Properties {
         internal static System.Drawing.Bitmap Close {
             get {
                 object obj = ResourceManager.GetObject("Close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Crawl_stroke_1450934188_1024x683 {
+            get {
+                object obj = ResourceManager.GetObject("Crawl-stroke-1450934188-1024x683", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap https___weeklyhow_com_downloads_11_24_19_Flappy20Sprites {
+            get {
+                object obj = ResourceManager.GetObject("https___weeklyhow.com_downloads_11-24-19_Flappy20Sprites", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Julie_Stupp_Arena_Tech_Suit_by_Mike_Lewis_D5D_7388 {
+            get {
+                object obj = ResourceManager.GetObject("Julie-Stupp-Arena-Tech-Suit-by-Mike-Lewis-D5D_7388", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap michael_phelps_200_butterfly_usa_swimming_nationals_2015_1685_1024x682 {
+            get {
+                object obj = ResourceManager.GetObject("michael-phelps-200-butterfly-usa-swimming-nationals-2015-1685-1024x682", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

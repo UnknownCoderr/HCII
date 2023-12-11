@@ -52,6 +52,12 @@
     <Compile Include="Account Settings.Designer.cs">
       <DependentUpon>Account Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Assign training.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assign training.Designer.cs">
+      <DependentUpon>Assign training.cs</DependentUpon>
+    </Compile>
     <Compile Include="Camera Screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,8 +129,17 @@
     <Compile Include="TUIO\TuioObject.cs" />
     <Compile Include="TUIO\TuioPoint.cs" />
     <Compile Include="TUIO\TuioTime.cs" />
+    <Compile Include="View Assigned training .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View Assigned training .Designer.cs">
+      <DependentUpon>View Assigned training .cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Account Settings.resx">
       <DependentUpon>Account Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assign training.resx">
+      <DependentUpon>Assign training.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Camera Screen.resx">
       <DependentUpon>Camera Screen.cs</DependentUpon>
@@ -154,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Swim Classification.resx">
       <DependentUpon>Swim Classification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View Assigned training .resx">
+      <DependentUpon>View Assigned training .cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -204,6 +222,21 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\https___weeklyhow.com_downloads_11-24-19_Flappy20Sprites.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0_4x_wKN1TiAUhkm_A.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crawl-stroke-1450934188-1024x683.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\michael-phelps-200-butterfly-usa-swimming-nationals-2015-1685-1024x682.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Julie-Stupp-Arena-Tech-Suit-by-Mike-Lewis-D5D_7388.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
