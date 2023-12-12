@@ -21,8 +21,8 @@ namespace HCI_Main
         public Dictionary<long, TuioObject> newobject;
         private bool verbose;
         public static int width, height;
-        private int window_width = 640;
-        private int window_height = 480;
+        private int window_width = 1000;
+        private int window_height = 600;
         private int window_left = 0;
         private int window_top = 0;
         private int screen_width = Screen.PrimaryScreen.Bounds.Width;

@@ -52,6 +52,12 @@
     <Compile Include="Account Settings.Designer.cs">
       <DependentUpon>Account Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add swimmer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add swimmer.Designer.cs">
+      <DependentUpon>Add swimmer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Assign training.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="Account Settings.resx">
       <DependentUpon>Account Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add swimmer.resx">
+      <DependentUpon>Add swimmer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Assign training.resx">
       <DependentUpon>Assign training.cs</DependentUpon>
@@ -237,6 +246,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Julie-Stupp-Arena-Tech-Suit-by-Mike-Lewis-D5D_7388.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-user-20.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -118,3 +118,4 @@ D:\HCII\HCI Main\HCI Main\obj\Debug\AxInterop.WMPLib.dll
 D:\HCII\HCI Main\HCI Main\obj\Debug\HCI Main.csproj.ResolveComReference.cache
 D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Assign_training.resources
 D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.View_Assigned_training.resources
+D:\HCII\HCI Main\HCI Main\obj\Debug\HCI_Main.Add_swimmer.resources

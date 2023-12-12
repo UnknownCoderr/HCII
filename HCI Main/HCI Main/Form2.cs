@@ -20,6 +20,8 @@ namespace HCI_Main
         int ctClassify = 0;
         int ctCamera = 0;
         int ct2 = 0;
+        int ct3 = 0;
+        int ct4 = 0;
 
         public Form2()
         {
@@ -71,6 +73,8 @@ namespace HCI_Main
         private void ClassifyBTN_Click_1(object sender, EventArgs e)
         {
             ct2 = 0;
+            ct3 = 0;
+            ct4 = 0;
             ctCamera = 0;
             ctClassify++;
             if (ctClassify == 1)
@@ -87,6 +91,8 @@ namespace HCI_Main
         {
             ctClassify = 0;
             ctCamera = 0;
+            ct3 = 0;
+            ct4 = 0;
             ct2++;
             if (ct2 == 1)
             {
@@ -102,6 +108,8 @@ namespace HCI_Main
         {
             ctClassify = 0;
             ct2 = 0;
+            ct3 = 0;
+            ct4 = 0;
             ctCamera++;
             if (ctCamera == 1)
             {
@@ -142,7 +150,37 @@ namespace HCI_Main
 
         private void button4_Click(object sender, EventArgs e)
         {
-            OpenForm(new View_Assigned_training());
+            ctClassify = 0;
+            ctCamera = 0;
+            ct2 = 0;
+            ct3 = 0;
+            ct4++;
+            if (ct4 == 1)
+            {
+                OpenForm(new View_Assigned_training());
+            }
+            else
+            {
+                MessageBox.Show("You are already in assigned training");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            ctClassify = 0;
+            ctCamera = 0;
+            ct2 = 0;
+            ct3++;
+            ct4 = 0;
+            if (ct3 == 1)
+            {
+                OpenForm(new Add_swimmer());
+            }
+            else
+            {
+                MessageBox.Show("You are already in add swimmer form");
+            }
         }
     }
 }

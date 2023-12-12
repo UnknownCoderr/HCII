@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(475, 123);
+            this.label1.Location = new System.Drawing.Point(598, 117);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(208, 29);
             this.label1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 86);
+            this.pictureBox1.Location = new System.Drawing.Point(135, 80);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(398, 414);
             this.pictureBox1.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             this.Swimm.AutoSize = true;
             this.Swimm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Swimm.Location = new System.Drawing.Point(475, 376);
+            this.Swimm.Location = new System.Drawing.Point(598, 370);
             this.Swimm.Name = "Swimm";
             this.Swimm.Size = new System.Drawing.Size(79, 29);
             this.Swimm.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(475, 205);
+            this.label3.Location = new System.Drawing.Point(598, 199);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 29);
             this.label3.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(475, 289);
+            this.label4.Location = new System.Drawing.Point(598, 283);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 29);
             this.label4.TabIndex = 4;
