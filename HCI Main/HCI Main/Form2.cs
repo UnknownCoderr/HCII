@@ -30,7 +30,7 @@ namespace HCI_Main
             this.Load += Form2_Load;
             tt.Tick += Tt_Tick;
             tt.Start();
-            c.connectToSocket("localhost", 9000);
+            c.connectToSocket("localhost", 8000);
         }
 
         private void Form2_Load(object sender, EventArgs e)

@@ -14,6 +14,7 @@ namespace HCI_Main
     {
         LoginCheck lgin = new LoginCheck();
         int ct1 = 0, ct2 = 0, ct3 = 0;
+        FaceRec2 face = new FaceRec2();
         public SignUp()
         {
             InitializeComponent();
@@ -23,7 +24,10 @@ namespace HCI_Main
         {
             if (textBox1.Text != "" && textBox2.Text != "")
             {
+                face.CloseCamera();
                 lgin.SaveCredentials(textBox1.Text, textBox2.Text);
+                face.Save_IMAGE(textBox1.Text);
+                MessageBox.Show("SignedUp", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form1 f = new Form1();
                 this.Hide();
                 f.ShowDialog();
@@ -34,9 +38,15 @@ namespace HCI_Main
             }
         }
 
+        private void SignUp_Load(object sender, EventArgs e)
+        {
+            face.openCamera(pictureBox1, pictureBox2);
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            face.CloseCamera();
         }
 
         private void label1_Click(object sender, EventArgs e)
