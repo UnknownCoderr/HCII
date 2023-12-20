@@ -16,8 +16,8 @@ namespace HCI_Main
     {
         private TuioClient client;
         private Dictionary<long, TuioObject> objectList;
-        private Dictionary<long, TuioBlob> blobList;
         private Dictionary<long, TuioCursor> cursorList;
+        private Dictionary<long, TuioBlob> blobList;
         public Dictionary<long, TuioObject> newobject;
         private bool verbose;
         public static int width, height;
