@@ -29,6 +29,7 @@ namespace HCI_Main
         private int screen_height = Screen.PrimaryScreen.Bounds.Height;
         bool msg = false;
         bool msg2 = false;
+        bool isForm=false;
         private bool fullscreen;
         Font font = new Font("Arial", 10.0f);
         SolidBrush fntBrush = new SolidBrush(Color.White);
@@ -57,11 +58,13 @@ namespace HCI_Main
             client.addTuioListener(this);
             this.Load += Drowning_detect_Load;
             client.connect();
+
+            isForm = true;
         }
 
         private void Drowning_detect_Load(object sender, EventArgs e)
         {
-            Process.Start("C:/Users/Ammar Wael/Desktop/HCI/HCI Main/HCI Main/bin/Debug/reacTIVision.exe");
+            Process.Start("D:\\HCII\\HCI Main\\HCI Main\\bin\\Debug\\reacTIVision.exe");
         }
         private void Form_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
@@ -123,26 +126,27 @@ namespace HCI_Main
 
         public void updateTuioObject(TuioObject o)
         {
-            int rotationangel = (int)Math.Round(o.Angle) * 10;
-
-            if (o.SymbolID.Equals(0))
+            if (isForm)
             {
+            //    int rotationangel = (int)Math.Round(o.Angle) * 10;
 
-                o.Name = "momen";
+            //    if (o.SymbolID.Equals(1))
+            //    {
 
-            }
-            if (rotationangel == 10 && !msg)
-            {
-                MessageBox.Show("next");
-                msg = true;
-                msg2 = false;
-            }
-            if (rotationangel == 50 && !msg2)
-            {
-                MessageBox.Show("previous");
-                msg2 = true;
-                msg = false;
-            }
+            //        if (rotationangel == 10 && !msg)
+            //        {
+            //            MessageBox.Show("next");
+            //            msg = true;
+            //            msg2 = false;
+            //        }
+            //        if (rotationangel == 50 && !msg2)
+            //        {
+            //            MessageBox.Show("previous");
+            //            msg2 = true;
+            //            msg = false;
+            //        }
+            //    }
+            }           
         }
 
         public void removeTuioObject(TuioObject o)
@@ -332,8 +336,7 @@ namespace HCI_Main
                         g.TranslateTransform(ox, oy);
                         g.RotateTransform(-1 * (float)(tobj.Angle / Math.PI * 180.0f));
                         g.TranslateTransform(-ox, -oy);
-
-                        g.DrawString(tobj.Name + "", font, fntBrush, new PointF(ox - 10, oy - 10));
+                        
                     }
                 }
             }

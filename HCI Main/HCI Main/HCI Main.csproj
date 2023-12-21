@@ -193,6 +193,12 @@
     <Compile Include="Swim Classification.Designer.cs">
       <DependentUpon>Swim Classification.cs</DependentUpon>
     </Compile>
+    <Compile Include="PieMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PieMenu.Designer.cs">
+      <DependentUpon>PieMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="TUIO\TuioBlob.cs" />
     <Compile Include="TUIO\TuioClient.cs" />
     <Compile Include="TUIO\TuioContainer.cs" />
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Swim Classification.resx">
       <DependentUpon>Swim Classification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PieMenu.resx">
+      <DependentUpon>PieMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View Assigned training .resx">
       <DependentUpon>View Assigned training .cs</DependentUpon>
