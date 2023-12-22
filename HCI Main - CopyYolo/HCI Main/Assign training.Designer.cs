@@ -60,9 +60,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::HCI_Main.Properties.Resources.Julie_Stupp_Arena_Tech_Suit_by_Mike_Lewis_D5D_7388;
-            this.pictureBox3.Location = new System.Drawing.Point(557, 184);
+            this.pictureBox3.Location = new System.Drawing.Point(571, 181);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(350, 149);
+            this.pictureBox3.Size = new System.Drawing.Size(336, 149);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
@@ -82,9 +82,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HCI_Main.Properties.Resources.michael_phelps_200_butterfly_usa_swimming_nationals_2015_1685_1024x682;
-            this.pictureBox1.Location = new System.Drawing.Point(592, 350);
+            this.pictureBox1.Location = new System.Drawing.Point(571, 350);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(315, 170);
+            this.pictureBox1.Size = new System.Drawing.Size(336, 170);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -94,7 +94,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(517, 82);
+            this.label1.Location = new System.Drawing.Point(483, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 19);
             this.label1.TabIndex = 4;
@@ -104,17 +104,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(517, 244);
+            this.label2.Location = new System.Drawing.Point(464, 244);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 19);
             this.label2.TabIndex = 5;
             this.label2.Text = "BackStroke";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(526, 424);
+            this.label3.Location = new System.Drawing.Point(493, 426);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 19);
             this.label3.TabIndex = 6;
