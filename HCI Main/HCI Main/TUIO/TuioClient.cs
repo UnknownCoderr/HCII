@@ -45,7 +45,7 @@ namespace TUIO
     public class TuioClient
     {
         private bool connected = false;
-        private int port = 3333;
+        private int port = 4000;
         private OSCReceiver receiver;
         private Thread thread;
 

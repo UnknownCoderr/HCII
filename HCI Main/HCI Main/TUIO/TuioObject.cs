@@ -32,14 +32,11 @@ namespace TUIO
      */
     public class TuioObject : TuioContainer
     {
-        public string Name;
-        public string Age;
-        public string Nationality;
         /**
          * <summary>
          * The individual symbol ID number that is assigned to each TuioObject.</summary>
          */
-        public int symbol_id;
+        protected int symbol_id;
 
         /**
          * <summary>

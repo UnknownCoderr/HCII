@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HCI_Main.TUIO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,7 +32,7 @@ namespace HCI_Main
             {
                 ct++;
                 face.CloseCamera();
-                Form2 f = new Form2();
+                PieMenu f = new PieMenu();
                 this.Hide();
                 f.ShowDialog();
                 tt.Stop();                
@@ -43,7 +44,7 @@ namespace HCI_Main
             //lgin.LoadCredentials();
             //if (lgin.CheckCredentials(textBox1.Text, textBox2.Text))
             //{
-            Form2 f = new Form2();
+            PieMenu f = new PieMenu();
             this.Hide();
             f.ShowDialog();
             //}
@@ -55,7 +56,6 @@ namespace HCI_Main
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void label4_Click(object sender, EventArgs e)
