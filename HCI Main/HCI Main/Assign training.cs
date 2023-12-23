@@ -60,8 +60,13 @@ namespace HCI_Main
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {    
-            if(comboBox1.Text!="" && textBox1.Text!="" && label7.Text != "")
+        {
+            asssign();            
+        }
+
+        public void asssign()
+        {
+            if (comboBox1.Text != "" && textBox1.Text != "" && label7.Text != "")
             {
                 string fileName = "SwimmerExcercise.txt";
                 string filePath = Path.Combine("D:\\HCII\\HCI Main\\HCI Main\\bin\\Debug", fileName);
@@ -75,13 +80,12 @@ namespace HCI_Main
                         writer.WriteLine(line);
                     }
                 }
-                MessageBox.Show("Assigned" , "Done" , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Assigned", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("Fill the missing boxes ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
         }
     }
 }
