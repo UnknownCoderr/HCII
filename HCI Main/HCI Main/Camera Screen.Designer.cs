@@ -136,6 +136,7 @@
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Name = "Camera_Screen";
             this.Text = "Camera_Screen";
+            this.Load += new System.EventHandler(this.Camera_Screen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer4)).EndInit();

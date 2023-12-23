@@ -123,6 +123,7 @@ namespace TUIO
             rotation_speed = 0.0f;
             rotation_accel = 0.0f;
         }
+ 
         #endregion
 
         #region Update Methods

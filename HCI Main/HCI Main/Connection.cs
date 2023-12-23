@@ -13,8 +13,9 @@ namespace HCI_Main
         NetworkStream stream;        
         TcpClient tcpClient;
         public float accuracy;
-        public string classify;        
+        public string classify;
         public Boolean isConnected = false;
+        public int ct = 0;
 
         public bool connectToSocket(String host, int portNumber)
         {
@@ -37,18 +38,25 @@ namespace HCI_Main
         {
             try
             {
-                byte[] recieveBuffer = new byte[1024];
-                int bytesReceived = stream.Read(recieveBuffer, 0, recieveBuffer.Length);
-
-                string data = Encoding.UTF8.GetString(recieveBuffer, 0, bytesReceived);
-                string[] points = data.Split('(');
-                string[] second = points[1].Split(',');
-                classify = second[0];
-                string[] ok1 = second[1].Split(')');
-                accuracy = float.Parse(ok1[0]);                
-                for (int i = 0; i < points.Length; i++)
+                if (ct == 0)
                 {
-                    Console.WriteLine(classify + " " + accuracy);
+                    byte[] recieveBuffer = new byte[1024];
+                    int bytesReceived = stream.Read(recieveBuffer, 0, recieveBuffer.Length);
+                    string data = Encoding.UTF8.GetString(recieveBuffer, 0, bytesReceived);
+                    string[] points = data.Split('(');
+                    string[] second = points[1].Split(',');
+                    classify = second[0];
+                    string[] ok1 = second[1].Split(')');
+                    accuracy = float.Parse(ok1[0]);
+                    string[] ok = data.Split(',');
+                }
+
+                if (ct == 1)
+                {
+                    byte[] recieveBuffer = new byte[1024];
+                    int bytesReceived = stream.Read(recieveBuffer, 0, recieveBuffer.Length);
+                    string data = Encoding.UTF8.GetString(recieveBuffer, 0, bytesReceived);
+                    Console.WriteLine(data);
                 }
 
                 return true;

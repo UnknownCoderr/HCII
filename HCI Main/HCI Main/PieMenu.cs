@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace HCI_Main.TUIO
 {
     public partial class PieMenu : Form , TuioListener
     {
+       
         Form activeform;
         int i = 0;
         private TuioClient client;
@@ -30,15 +32,17 @@ namespace HCI_Main.TUIO
         SolidBrush objBrush = new SolidBrush(Color.FromArgb(64, 0, 0));
         SolidBrush blbBrush = new SolidBrush(Color.FromArgb(64, 64, 64));
         Pen curPen = new Pen(new SolidBrush(Color.Blue), 1);
-        public int ctor = 0, ctor1 = 0;
+        public int ctor = 0, ctor1 = 0, ctor2 = 0, ctor3 = 0, ctor4 = 0, ctor5 = 0;        
         Bitmap off;
         bool ishere = false;
         bool isSwim = false;
-        bool isCamera = false;
-        public static string text = "unrecognized";
-        private string[] menuOptions = { "Person detection", "camera screen", "new swimmer", "view training", "account setting" , "Swimm class" };
+        int xminus = 470;
+        bool isCamera = false; bool isDetect = false; bool isNewSwimmer = false; bool isView = false; bool isAccount = false;
+        public string[] menuOptions = { "Person detection", "camera screen", "new swimmer", "view training", "account setting" , "Swimm class" };
+        Timer tt = new Timer();
+        public int ctt = 0;
         public PieMenu()
-        {
+        {                                           
             InitializeComponent();
             this.Paint += PieMenu_Paint;
             this.Load += PieMenu_Load1;
@@ -51,30 +55,82 @@ namespace HCI_Main.TUIO
             blobList = new Dictionary<long, TuioBlob>(128);
             client = new TuioClient(3333);
             client.addTuioListener(this);
-            client.connect();
+            client.connect();            
             isok = true;
+            tt.Tick += Tt_Tick;
+            tt.Start();
+        }
+
+        private void Tt_Tick(object sender, EventArgs e)
+        {            
         }
 
         private void PieMenu_Load1(object sender, EventArgs e)
-        {
-            off = new Bitmap(this.ClientSize.Width, this.ClientSize.Height);            
+        {           
+            off = new Bitmap(this.ClientSize.Width, this.ClientSize.Height);
         }
 
         private void PieMenu_Paint(object sender, PaintEventArgs e)
         {
             DrawDubb(e.Graphics);
-            DrawPieMenu(e.Graphics);
         }
 
         void DrawScene(Graphics g2)
         {
             g2.Clear(Color.White);
-            //SolidBrush b = new SolidBrush(Color.Yellow);
-            //g2.FillEllipse(b, this.ClientSize.Width / 2, this.ClientSize.Height / 2, ctor, ctor);
-            //if (!ishere)
-            //{
-            //    g2.FillEllipse(b, this.ClientSize.Width / 2 - 100, this.ClientSize.Height / 2, 100, 100);
-            //}
+
+            if (ctt == 0) 
+            {
+                int centerX = ClientSize.Width / 2;
+                int centerY = ClientSize.Height / 2;
+                int radius = 100;
+                float angleIncrement = 360f / menuOptions.Length;
+
+                for (int i = 0; i < menuOptions.Length; i++)
+                {
+                    float angle = i * angleIncrement;
+                    float radians = (float)(angle * Math.PI / 180.0);
+
+                    int x = (int)(centerX + radius * Math.Cos(radians));
+                    int y = (int)(centerY + radius * Math.Sin(radians));
+
+                    g2.FillEllipse(Brushes.Cyan, x - 460, y - 30, 60, 60);
+
+
+                    using (Font font = new Font("Arial", 8))
+                    {
+                        SizeF textSize = g2.MeasureString(menuOptions[i], font);
+                        g2.DrawString(menuOptions[i], font, Brushes.Black, x - 470, y - textSize.Height / 2);
+                    }
+                }
+            }
+
+            if (ctt == 1)
+            {
+                int centerX = ClientSize.Width / 2;
+                int centerY = ClientSize.Height / 2;
+                int radius = 100;
+                float angleIncrement = 360f / menuOptions.Length;
+
+                for (int i = 0; i < menuOptions.Length; i++)
+                {
+                    float angle = i * angleIncrement;
+                    float radians = (float)(angle * Math.PI / 180.0);
+
+                    int x = (int)(centerX + radius * Math.Cos(radians));
+                    int y = (int)(centerY + radius * Math.Sin(radians));
+
+                    g2.FillEllipse(Brushes.Cyan, x - 460, y - 30, 60, 60);
+
+
+                    using (Font font = new Font("Arial", 8))
+                    {
+                        SizeF textSize = g2.MeasureString(menuOptions[i], font);
+                        g2.DrawString(menuOptions[i], font, Brushes.Black, x - xminus, y - textSize.Height / 2);
+                    }
+                }
+            }
+            
         }
 
         void DrawDubb(Graphics g)
@@ -84,36 +140,11 @@ namespace HCI_Main.TUIO
             g.DrawImage(off, 0, 0);
         }
 
-        private void DrawPieMenu(Graphics g)
-        {
-            int centerX = ClientSize.Width / 2;
-            int centerY = ClientSize.Height / 2;
-            int radius = 100;
-            float angleIncrement = 360f / menuOptions.Length;
-
-            for (int i = 0; i < menuOptions.Length; i++)
-            {
-                float angle = i * angleIncrement;
-                float radians = (float)(angle * Math.PI / 180.0);
-
-                int x = (int)(centerX + radius * Math.Cos(radians));
-                int y = (int)(centerY + radius * Math.Sin(radians));
-
-                g.FillEllipse(Brushes.Cyan, x - 30, y - 30, 60, 60); // Draw menu items as circles
-
-
-                using (Font font = new Font("Arial", 8))
-                {
-                    SizeF textSize = g.MeasureString(menuOptions[i], font);
-                    g.DrawString(menuOptions[i], font, Brushes.Black, x - textSize.Width / 2, y - textSize.Height / 2);
-                }
-            }           
-        }
-
         private void PieMenu_Load(object sender, EventArgs e)
         {
             //Process.Start("D:\\HCII\\HCI Main\\HCI Main\\bin\\Debug\\reacTIVision.exe");
         }
+
         public void addTuioObject(TuioObject o)
         {
             lock (objectList)
@@ -189,94 +220,150 @@ namespace HCI_Main.TUIO
         {
             Invalidate();
         }
-
-        Form[] forms = { new Swim_Classification(), new View_Assigned_training()};
-        public void isrotate(float angel)
+        private void OpenForm(Form NewForm)
         {
-
-            if (angel > 0.5 && angel < 1 && !isSwim)
-            {
-                Console.WriteLine("in");
-                if (ctor > 50)
-                {
-                    isSwim = true;
-                    Swim_Classification f = new Swim_Classification();                    
-                    f.ShowDialog();
-                    Console.WriteLine("Top right: " + angel);
-                }
-                ctor++;
-            }
-
-            if (angel >= 1 && angel < 2 && !isCamera) 
-            {               
-                Console.WriteLine("in2");
-                if (ctor1 > 50)
-                {
-                    isCamera = true;
-                    Camera_Screen f = new Camera_Screen();
-                    f.ShowDialog();
-                    Console.WriteLine("right: " + angel);
-                }
-                ctor1++;
-            }
-
-            //if (angel >= 2 && angel < 3)
-            //{
-            //    Console.WriteLine("bottom right: " + angel);
-            //}
-
-            //if (angel >= 3 && angel < 4)
-            //{
-            //    Console.WriteLine("bottom left: " + angel);
-            //}
-
-            //if (angel >= 4 && angel < 5)
-            //{
-            //    Console.WriteLine("left: " + angel);
-            //}
-
-            //if (angel >= 5 && angel < 5.5)
-            //{
-            //    Console.WriteLine("top left: " + angel);
-            //}
-
-            //if (angel >= 4)
-            //{
-            //    Console.WriteLine("left:");
-            //    if (ctor > 100)
-            //    {
-            //        if (i != 0)
-            //        {
-            //            i--;
-            //        }
-            //        // openchild(forms[i]);
-            //        Console.WriteLine("left:" + angel + ":" + ctor);
-            //        ctor = 0;
-            //    }
-            //    ctor++;
-            //}
-            //if (angel >= 1 && angel < 3)
-            //{
-            //    Console.WriteLine("Right:" + angel);
-            //    if (ctor > 50)
-            //    {
-            //        if (i != 3)
-            //        {
-            //            i++;
-            //        }
-            //        Swim_Classification f = new Swim_Classification();
-            //        f.Show();
-            //        Console.WriteLine("Right:" + angel + ":" + ctor);
-            //        ctor = 0;
-            //    }
-            //    ctor++;
-            //}
+            NewForm.TopLevel = false;
+            NewForm.FormBorderStyle = FormBorderStyle.None;
+            NewForm.Dock = DockStyle.Fill;
+            this.panel1.Controls.Add(NewForm);
+            this.panel1.Tag = NewForm;
+            NewForm.BringToFront();
+            NewForm.Show();
         }
 
-        void dothis()
+        public void isrotate(float angel)
         {
-            forms[0] = new Swim_Classification();
-            forms[1] = new View_Assigned_training();
+            if (ctt == 0)
+            {
+                if (angel > 0.5 && angel < 1 && !isSwim)
+                {
+                    Console.WriteLine("in");
+                    if (ctor >= 50)
+                    {
+                        isSwim = true;
+                        OpenForm(new View_Assigned_training());
+                        Console.WriteLine("Top right: " + angel);
+                    }
+                    ctor++;
+                    ctor1 = 0;
+                    ctor2 = 0;
+                    ctor3 = 0;
+                    ctor4 = 0;
+                    ctor5 = 0;
+                }
+
+                if (angel >= 1 && angel < 2 && !isDetect)
+                {
+                    Console.WriteLine("in2");
+                    if (ctor1 > 50)
+                    {
+                        isDetect = true;
+                        OpenForm(new Drowning_detect());
+                        Console.WriteLine("right: " + angel);
+                    }
+                    ctor = 0;
+                    ctor1++;
+                    ctor2 = 0;
+                    ctor3 = 0;
+                    ctor4 = 0;
+                    ctor5 = 0;
+                }
+
+
+                if (angel >= 2 && angel < 3 && !isCamera)
+                {
+                    Console.WriteLine("in3");
+                    if (ctor2 > 50)
+                    {
+                        string[] newMenuOptions = { "Start", "Assign Training" };
+                        menuOptions = newMenuOptions;
+                        ctt = 1;
+                        xminus = 450;
+                        DrawDubb(this.CreateGraphics());
+                        isCamera = true;
+                        OpenForm(new Camera_Screen());
+                        Console.WriteLine("bottom right: " + angel);
+                    }
+                    ctor = 0;
+                    ctor1 = 0;
+                    ctor2++;
+                    ctor3 = 0;
+                    ctor4 = 0;
+                    ctor5 = 0;
+                }
+
+                if (angel >= 3 && angel < 4 && !isNewSwimmer)
+                {
+                    Console.WriteLine("in4");
+                    if (ctor3 > 50)
+                    {
+                        isNewSwimmer = true;
+                        OpenForm(new Add_swimmer());
+                        Console.WriteLine("bottom right: " + angel);
+                    }
+                    ctor = 0;
+                    ctor1 = 0;
+                    ctor2 = 0;
+                    ctor3++;
+                    ctor4 = 0;
+                    ctor5 = 0;
+                }
+
+                if (angel >= 4 && angel < 5 && !isView)
+                {
+                    Console.WriteLine("in5");
+                    if (ctor4 > 50)
+                    {
+                        isView = true;
+                        OpenForm(new View_Assigned_training());
+                        Console.WriteLine("bottom right: " + angel);
+                    }
+                    ctor = 0;
+                    ctor1 = 0;
+                    ctor2 = 0;
+                    ctor3 = 0;
+                    ctor4++;
+                    ctor5 = 0;
+                }
+
+                if (angel >= 5 && angel < 5.5 && !isAccount)
+                {
+                    Console.WriteLine("in6");
+                    if (ctor5 > 50)
+                    {
+                        isAccount = true;
+                        OpenForm(new Account_Settings());
+                        Console.WriteLine("bottom right: " + angel);
+                    }
+                    ctor = 0;
+                    ctor1 = 0;
+                    ctor2 = 0;
+                    ctor3 = 0;
+                    ctor4 = 0;
+                    ctor5++;
+                }
+            }
+
+            if (ctt == 1)
+            {
+                if (angel >= 4 && angel < 5 && !isView)
+                {
+                    Console.WriteLine("in5");
+                    if (ctor4 > 50)
+                    {
+                        isView = true;
+                        OpenForm(new Assign_training());
+                        Console.WriteLine("Left: " + angel);
+                    }
+                    ctor = 0;
+                    ctor1 = 0;
+                    ctor2 = 0;
+                    ctor3 = 0;
+                    ctor4++;
+                    ctor5 = 0;
+                }
+            }
+           
         }
 
         protected override void OnPaintBackground(PaintEventArgs pevent)
@@ -288,7 +375,6 @@ namespace HCI_Main.TUIO
                 {
                     foreach (TuioObject tobj in objectList.Values)
                     {
-                        //Console.WriteLine("mewooo " + tobj.SymbolID);
                         if (tobj.SymbolID == 11)
                         {
                             Console.WriteLine("save");
