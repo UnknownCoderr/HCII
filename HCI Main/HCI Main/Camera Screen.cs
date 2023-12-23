@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HCI_Main.TUIO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace HCI_Main
 {
     public partial class Camera_Screen : Form
     {
+        //ClientC c = new ClientC();
+        PieMenu P = new PieMenu();
+
         public Camera_Screen()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,6 +74,19 @@ namespace HCI_Main
         {
             Assign_training f = new Assign_training();
             f.ShowDialog();
+        }
+
+        private void Camera_Screen_Load(object sender, EventArgs e)
+        {
+            //c.connectToSocket("localhost", 9000);
+            //if (c.isConnected)
+            //{
+            //    c.ct = 1;
+            //    c.recieveMessage();
+            //}
+            string[] newMenuOptions = { "Start", "Assign Training" };
+            P.ctt = 1;
+            P.menuOptions = newMenuOptions;
         }
     }
 }
