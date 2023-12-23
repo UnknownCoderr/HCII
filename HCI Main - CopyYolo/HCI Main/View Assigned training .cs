@@ -20,7 +20,7 @@ namespace HCI_Main
 
         private void View_Assigned_training_Load(object sender, EventArgs e)
         {
-            string filePath = "D:\\HCII\\HCI Main\\HCI Main\\bin\\Debug\\SwimmerExcercise.txt";
+            string filePath = "D:\\HCI\\HCII\\HCI Main - CopyYolo\\HCI Main\\bin\\Debug\\SwimmerExcercise.txt";
             
             try
             {                

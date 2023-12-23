@@ -15,7 +15,7 @@ namespace HCI_Main
         public float accuracy;
         public string classify;        
         public Boolean isConnected = false;
-
+        public string data;
         public bool connectToSocket(String host, int portNumber)
         {
             try
@@ -40,17 +40,14 @@ namespace HCI_Main
                 byte[] recieveBuffer = new byte[1024];
                 int bytesReceived = stream.Read(recieveBuffer, 0, recieveBuffer.Length);
 
-                string data = Encoding.UTF8.GetString(recieveBuffer, 0, bytesReceived);
-                string[] points = data.Split('(');
-                string[] second = points[1].Split(',');
-                classify = second[0];
-                string[] ok1 = second[1].Split(')');
-                accuracy = float.Parse(ok1[0]);                
+                data = Encoding.UTF8.GetString(recieveBuffer, 0, bytesReceived);
+                string[] points = data.Split(',');
+                
                 for (int i = 0; i < points.Length; i++)
                 {
-                    Console.WriteLine(classify + " " + accuracy);
+                    Console.WriteLine(points[i]);
                 }
-
+                
                 return true;
             }
             catch (System.Net.Sockets.SocketException e)
