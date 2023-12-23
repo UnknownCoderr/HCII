@@ -16,6 +16,7 @@ namespace HCI_Main
     {
         public static ClientC c = new ClientC();
         Bitmap off;
+        int count = 0;
         Timer tt = new Timer();
         int ctClassify = 0;
         int ctCamera = 0;
@@ -30,8 +31,10 @@ namespace HCI_Main
             this.Load += Form2_Load;
             tt.Tick += Tt_Tick;
             tt.Start();
-            c.connectToSocket("localhost", 8000);
+            c.connectToSocket("localhost", 3333);
         }
+
+        
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -39,6 +42,7 @@ namespace HCI_Main
             if (c.isConnected)
             {
                 c.recieveMessage();
+           
             }
             off = new Bitmap(ClientSize.Width, ClientSize.Height);
         }
@@ -50,8 +54,22 @@ namespace HCI_Main
 
         private void Tt_Tick(object sender, EventArgs e)
         {
+            if(c.isConnected)
+            {
+                check();
+            }
         }
-
+        public void check()
+        {
+            if (c.data == "'right'")
+            {
+                if (count == 0)
+                {
+                    OpenForm(new View_Assigned_training());
+                    count++;
+                }
+            }
+        }
         private void OpenForm(Form NewForm)
         {
             NewForm.TopLevel = false;

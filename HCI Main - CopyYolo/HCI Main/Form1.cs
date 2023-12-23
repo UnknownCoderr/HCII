@@ -9,21 +9,25 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace HCI_Main
 {
     public partial class Form1 : Form
     {
+        public static ClientC c = new ClientC();
         LoginCheck lgin = new LoginCheck();
         FaceRec2 face = new FaceRec2();
         Timer tt = new Timer();
         int ct = 0;
+        int count = 0;
         public Form1()
         {
             InitializeComponent();
             tt.Tick += Tt_Tick;
             tt.Interval = 2000;
             tt.Start();
+            //c.connectToSocket("localhost", 7000);
         }
 
         private void Tt_Tick(object sender, EventArgs e)
@@ -37,8 +41,12 @@ namespace HCI_Main
                 f.ShowDialog();
                 tt.Stop();                
             }
+            if(c.isConnected)
+            {
+                //check();
+            }
         }
-
+        
         private void button1_Click_1(object sender, EventArgs e)
         {
             //lgin.LoadCredentials();
@@ -53,7 +61,21 @@ namespace HCI_Main
             //    MessageBox.Show("Sign up please");
             //}
         }
+        public void check()
+        {
+            if (c.data == "'right'")
+            {
+                if (count == 0)
+                {
 
+                    Form2 f = new Form2();
+                    this.Hide();
+                    f.ShowDialog();
+                    count++;
+                }
+
+            }
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
         }
