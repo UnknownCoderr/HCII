@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -16,6 +17,7 @@ namespace HCI_Main
         public string classify;
         public Boolean isConnected = false;
         public int ct = 0;
+        List<string> DataOk = new List<string>();
 
         public bool connectToSocket(String host, int portNumber)
         {
@@ -56,7 +58,9 @@ namespace HCI_Main
                     byte[] recieveBuffer = new byte[1024];
                     int bytesReceived = stream.Read(recieveBuffer, 0, recieveBuffer.Length);
                     string data = Encoding.UTF8.GetString(recieveBuffer, 0, bytesReceived);
-                    Console.WriteLine(data);
+                    DataOk.Add(data);
+                    Console.WriteLine(DataOk);
+                    SaveEmotions();
                 }
 
                 return true;
@@ -66,6 +70,21 @@ namespace HCI_Main
                 Console.WriteLine("Connection failed:" + e);
                 return false;
             }
+        }
+
+        public void SaveEmotions()
+        {
+            string filePath = @"D:\HCII\HCI Main\HCI Main\bin\Debug\Emotions.txt";
+
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                for(int i=0; i<DataOk.Count; i++)
+                {
+                    writer.Write(DataOk[i] + Environment.NewLine);
+                }                
+            }
+
+            Console.WriteLine($"Result has been saved to {filePath}");
         }
 
         public bool closeConnection()

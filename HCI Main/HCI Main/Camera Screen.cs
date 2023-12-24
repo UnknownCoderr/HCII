@@ -13,12 +13,23 @@ namespace HCI_Main
 {
     public partial class Camera_Screen : Form
     {
-        //ClientC c = new ClientC();
-        PieMenu P = new PieMenu();
+        ClientC c = new ClientC();
+        Timer tt = new Timer();
 
         public Camera_Screen()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            tt.Tick += Tt_Tick;
+            tt.Start();
+        }
+
+        private void Tt_Tick(object sender, EventArgs e)
+        {
+            if (c.isConnected)
+            {
+                c.ct = 1;
+                c.recieveMessage();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,15 +89,7 @@ namespace HCI_Main
 
         private void Camera_Screen_Load(object sender, EventArgs e)
         {
-            //c.connectToSocket("localhost", 9000);
-            //if (c.isConnected)
-            //{
-            //    c.ct = 1;
-            //    c.recieveMessage();
-            //}
-            string[] newMenuOptions = { "Start", "Assign Training" };
-            P.ctt = 1;
-            P.menuOptions = newMenuOptions;
+            c.connectToSocket("localhost", 2000);            
         }
     }
 }

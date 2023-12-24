@@ -42,16 +42,19 @@ namespace HCI_Main.TUIO
         SolidBrush objBrush = new SolidBrush(Color.FromArgb(64, 0, 0));
         SolidBrush blbBrush = new SolidBrush(Color.FromArgb(64, 64, 64));
         Pen curPen = new Pen(new SolidBrush(Color.Blue), 1);
+        Assign_training p = new Assign_training();
         public int ctor = 0, ctor1 = 0, ctor2 = 0, ctor3 = 0, ctor4 = 0, ctor5 = 0;        
         Bitmap off;
         bool ishere = false;
         bool isSwim = false;
         int xminus = 470;
-        bool isCamera = false; bool isDetect = false; bool isNewSwimmer = false; bool isView = false; bool isAccount = false, isAssign = false, isBack = false, isBack1 = false;
+        bool isCamera = false; bool isDetect = false; bool isNewSwimmer = false; 
+        bool isView = false; bool isAccount = false, isAssign = false, isBack = false, isBack1 = false, isAssignT = false, isClear = false;
         public string[] menuOptions = { "Person detection", "camera screen", "new swimmer", "view training", "account setting" , "Swimm class" };
         Timer tt = new Timer();
         public int ctt = 0, ctTimer = 0;
         public bool isTimer = false;
+        public int intTUIO =0;
         public PieMenu()
         {                                           
             InitializeComponent();
@@ -61,12 +64,17 @@ namespace HCI_Main.TUIO
             this.SetStyle(ControlStyles.AllPaintingInWmPaint |
                             ControlStyles.UserPaint |
                             ControlStyles.DoubleBuffer, true);
-            objectList = new Dictionary<long, TuioObject>(128);
-            cursorList = new Dictionary<long, TuioCursor>(128);
-            blobList = new Dictionary<long, TuioBlob>(128);
-            client = new TuioClient(3333);
-            client.addTuioListener(this);
-            client.connect();            
+            if (intTUIO==0)
+            {
+                intTUIO = 1;
+                objectList = new Dictionary<long, TuioObject>(128);
+                cursorList = new Dictionary<long, TuioCursor>(128);
+                blobList = new Dictionary<long, TuioBlob>(128);
+                client = new TuioClient(3333);
+                client.addTuioListener(this);
+                client.connect();
+            }
+                   
             isok = true;
             tt.Tick += Tt_Tick;
             tt.Start();
@@ -341,7 +349,10 @@ namespace HCI_Main.TUIO
                         isView = false;
                         isAccount = false;
                         isAssign = false;
+                        isAssignT = false;
                         isBack = false;
+                        isBack1 = false;
+                        isClear = false;
                         OpenForm(new Swim_Classification());
                         Console.WriteLine("Top right: " + angel);
                     }
@@ -377,7 +388,10 @@ namespace HCI_Main.TUIO
                         isView = false;
                         isAccount = false;
                         isAssign = false;
+                        isAssignT = false;
                         isBack = false;
+                        isBack1 = false;
+                        isClear = false;
                         OpenForm(new Drowning_detect());
                         Console.WriteLine("right: " + angel);
                     }
@@ -388,7 +402,6 @@ namespace HCI_Main.TUIO
                     ctor4 = 0;
                     ctor5 = 0;
                 }
-
 
                 if (angel >= 2 && angel < 3 && !isCamera)
                 {
@@ -411,7 +424,6 @@ namespace HCI_Main.TUIO
                         menuOptions = newMenuOptions;
                         ctt = 1;
                         xminus = 450;
-                        DrawDubb(this.CreateGraphics());
                         isSwim = false;
                         isDetect = false;
                         isCamera = true;
@@ -419,7 +431,10 @@ namespace HCI_Main.TUIO
                         isView = false;
                         isAccount = false;
                         isAssign = false;
+                        isAssignT = false;
                         isBack = false;
+                        isBack1 = false;
+                        isClear = false;
                         OpenForm(new Camera_Screen());
                         Console.WriteLine("bottom right: " + angel);
                     }
@@ -433,9 +448,20 @@ namespace HCI_Main.TUIO
 
                 if (angel >= 3 && angel < 4 && !isNewSwimmer)
                 {
-                    Console.WriteLine("in4");
+                    if (!isTimer)
+                    {
+                        isTimer = true;
+                    }
+                    ellipseList[0].Color = Brushes.Cyan;
+                    ellipseList[1].Color = Brushes.Cyan;
+                    ellipseList[2].Color = Brushes.Red;
+                    ellipseList[3].Color = Brushes.Cyan;
+                    ellipseList[4].Color = Brushes.Cyan;
+                    ellipseList[5].Color = Brushes.Cyan;
                     if (ctor3 > 50)
                     {
+                        isTimer = false;
+                        ctTimer = 0;
                         isSwim = false;
                         isDetect = false;
                         isCamera = false;
@@ -443,7 +469,10 @@ namespace HCI_Main.TUIO
                         isView = false;
                         isAccount = false;
                         isAssign = false;
+                        isAssignT = false;
                         isBack = false;
+                        isBack1 = false;
+                        isClear = false;
                         OpenForm(new Add_swimmer());
                         Console.WriteLine("bottom left: " + angel);
                     }
@@ -457,9 +486,20 @@ namespace HCI_Main.TUIO
 
                 if (angel >= 4 && angel < 5 && !isView)
                 {
-                    Console.WriteLine("in5");
+                    if (!isTimer)
+                    {
+                        isTimer = true;
+                    }
+                    ellipseList[0].Color = Brushes.Cyan;
+                    ellipseList[1].Color = Brushes.Cyan;
+                    ellipseList[2].Color = Brushes.Cyan;
+                    ellipseList[3].Color = Brushes.Red;
+                    ellipseList[4].Color = Brushes.Cyan;
+                    ellipseList[5].Color = Brushes.Cyan;
                     if (ctor4 > 50)
                     {
+                        isTimer = false;
+                        ctTimer = 0;
                         isSwim = false;
                         isDetect = false;
                         isCamera = false;
@@ -467,7 +507,10 @@ namespace HCI_Main.TUIO
                         isView = true;
                         isAccount = false;
                         isAssign = false;
+                        isAssignT = false;
                         isBack = false;
+                        isBack1 = false;
+                        isClear = false;
                         OpenForm(new View_Assigned_training());
                         Console.WriteLine("left: " + angel);
                     }
@@ -481,9 +524,20 @@ namespace HCI_Main.TUIO
 
                 if (angel >= 5 && angel < 5.5 && !isAccount)
                 {
-                    Console.WriteLine("in6");
+                    if (!isTimer)
+                    {
+                        isTimer = true;
+                    }
+                    ellipseList[0].Color = Brushes.Cyan;
+                    ellipseList[1].Color = Brushes.Cyan;
+                    ellipseList[2].Color = Brushes.Cyan;
+                    ellipseList[3].Color = Brushes.Cyan;
+                    ellipseList[4].Color = Brushes.Red;
+                    ellipseList[5].Color = Brushes.Cyan;
                     if (ctor5 > 50)
                     {
+                        isTimer = false;
+                        ctTimer = 0;
                         isSwim = false;
                         isDetect = false;
                         isCamera = false;
@@ -491,7 +545,10 @@ namespace HCI_Main.TUIO
                         isView = false;
                         isAccount = true;
                         isAssign = false;
+                        isAssignT = false;
                         isBack = false;
+                        isBack1 = false;
+                        isClear = false;
                         OpenForm(new Account_Settings());
                         Console.WriteLine("top left: " + angel);
                     }
@@ -504,9 +561,10 @@ namespace HCI_Main.TUIO
                 }
             }
 
+            
             if (ctt == 1)
             {
-                if (angel >= 5 && angel < 5.5 && !isView)
+                if (angel >= 5 && angel < 5.5 && !isAssign)
                 {
                     if (!isTimer)
                     {
@@ -524,10 +582,12 @@ namespace HCI_Main.TUIO
 
                     if (ctor4 > 50)
                     {
+                        ellipseList2[1].Color = Brushes.Cyan;
+                        ellipseList2[2].Color = Brushes.Cyan;
                         isTimer = false;
                         ctTimer = 0;
                         isView = true;
-                        OpenForm(new Assign_training());
+                        OpenForm(p);
                         Console.WriteLine("Left: " + angel);
                         string[] newMenuOptions = { "Assign", "Clear", "Back" };
                         menuOptions = newMenuOptions;
@@ -536,10 +596,13 @@ namespace HCI_Main.TUIO
                         isDetect = false;
                         isCamera = false;
                         isNewSwimmer = false;
-                        isView = true;
+                        isView = false;
                         isAccount = false;
-                        isAssign = false;
+                        isAssign = true;
+                        isAssignT = false;
                         isBack = false;
+                        isBack1 = false;
+                        isClear = false;
                         DrawDubb(this.CreateGraphics());
                     }
                     ctor = 0;
@@ -569,6 +632,8 @@ namespace HCI_Main.TUIO
 
                     if (ctor4 > 50)
                     {
+                        ellipseList2[1].Color = Brushes.Cyan;
+                        ellipseList2[2].Color = Brushes.Cyan;
                         isTimer = false;
                         ctTimer = 0;
                         isView = true;
@@ -583,9 +648,10 @@ namespace HCI_Main.TUIO
                         isView = false;
                         isAccount = false;
                         isAssign = false;
+                        isAssignT = false;
                         isBack = false;
                         isBack1 = true;
-                        DrawDubb(this.CreateGraphics());
+                        isClear = false;
                     }
                     ctor = 0;
                     ctor1 = 0;
@@ -598,90 +664,136 @@ namespace HCI_Main.TUIO
 
             if (ctt == 2)
             {
-                //if (angel >= 5 && angel < 5.5 && !isAssign)
-                //{
-                //    if (!isTimer)
-                //    {
-                //        isTimer = true;
-                //    }
-                //    ellipseList[0].Color = Brushes.Cyan;
-                //    ellipseList[1].Color = Brushes.Cyan;
-                //    ellipseList[2].Color = Brushes.Cyan;
-                //    ellipseList[3].Color = Brushes.Cyan;
-                //    ellipseList[4].Color = Brushes.Cyan;
-                //    ellipseList[5].Color = Brushes.Cyan;
-                //    ellipseList2[0].Color = Brushes.Cyan;
-                //    ellipseList2[1].Color = Brushes.Cyan;
-                //    ellipseList3[0].Color = Brushes.Red;
-                //    ellipseList3[1].Color = Brushes.Cyan;
-                //    ellipseList3[2].Color = Brushes.Cyan;
-                //    if (ctor2 > 50)
-                //    {
-                //        isTimer = false;
-                //        ctTimer = 0;
-                //        isSwim = false;
-                //        isDetect = false;
-                //        isCamera = false ;
-                //        isNewSwimmer = false;
-                //        isView = false;
-                //        isAccount = false;
-                //        isAssign = true;
-                //        isBack = false;
-                //        Assign_training f = new Assign_training();
-                //        f.asssign();
-                //        Console.WriteLine("Top Left: " + angel);
-                //    }
-                //    ctor = 0;
-                //    ctor1 = 0;
-                //    ctor2++;
-                //    ctor3 = 0;
-                //    ctor4 = 0;
-                //    ctor5 = 0;
-                //}
+                if (angel >= 1 && angel < 2 && !isAssignT)
+                {
+                    if (!isTimer)
+                    {
+                        isTimer = true;
+                    }
+                    ellipseList[0].Color = Brushes.Cyan;
+                    ellipseList[1].Color = Brushes.Cyan;
+                    ellipseList[2].Color = Brushes.Cyan;
+                    ellipseList[3].Color = Brushes.Cyan;
+                    ellipseList[4].Color = Brushes.Cyan;
+                    ellipseList[5].Color = Brushes.Cyan;
+                    ellipseList2[0].Color = Brushes.Cyan;
+                    ellipseList2[1].Color = Brushes.Cyan;
+                    ellipseList3[0].Color = Brushes.Red;
+                    ellipseList3[1].Color = Brushes.Cyan;
+                    ellipseList3[2].Color = Brushes.Cyan;
+                    if (ctor2 > 50)
+                    {
+                        isTimer = false;
+                        ctTimer = 0;
+                        isSwim = false;
+                        isDetect = false;
+                        isCamera = false;
+                        isNewSwimmer = false;
+                        isView = false;
+                        isAccount = false;
+                        isAssignT = true;
+                        isAssign = false;
+                        isBack = false;
+                        isClear = false;
+                        p.asssign();
+                        Console.WriteLine("Right: " + angel);
+                    }
+                    ctor = 0;
+                    ctor1 = 0;
+                    ctor2++;
+                    ctor3 = 0;
+                    ctor4 = 0;
+                    ctor5 = 0;
+                }
 
+                if (angel >= 5 && angel < 5.5 && !isBack)
+                {
+                    if (!isTimer)
+                    {
+                        isTimer = true;
+                    }
+                    ellipseList[0].Color = Brushes.Cyan;
+                    ellipseList[1].Color = Brushes.Cyan;
+                    ellipseList[2].Color = Brushes.Cyan;
+                    ellipseList[3].Color = Brushes.Cyan;
+                    ellipseList[4].Color = Brushes.Cyan;
+                    ellipseList[5].Color = Brushes.Cyan;
+                    ellipseList2[0].Color = Brushes.Cyan;
+                    ellipseList2[1].Color = Brushes.Cyan;
+                    ellipseList3[0].Color = Brushes.Cyan;
+                    ellipseList3[1].Color = Brushes.Cyan;
+                    ellipseList3[2].Color = Brushes.Red;
+                    if (ctor5 > 50)
+                    {
+                        isTimer = false;
+                        ctTimer = 0;
+                        string[] newMenuOptions = { "Start", "Back", "Assign Training" };
+                        menuOptions = newMenuOptions;
+                        ctt = 1;
+                        isSwim = false;
+                        isDetect = false;
+                        isCamera = false;
+                        isNewSwimmer = false;
+                        isView = false;
+                        isAccount = false;
+                        isAssign = false;
+                        isAssignT = false;
+                        isBack = true;
+                        isBack1 = false;
+                        isClear = false;
+                        OpenForm(new Camera_Screen());
+                        Console.WriteLine("Top left: " + angel);
+                    }
+                    ctor = 0;
+                    ctor1 = 0;
+                    ctor2 = 0;
+                    ctor3 = 0;
+                    ctor4 = 0;
+                    ctor5++;
+                }
 
-                //if (angel >= 3 && angel < 4 && !isBack)
-                //{
-                //    if (!isTimer)
-                //    {
-                //        isTimer = true;
-                //    }
-                //    ellipseList[0].Color = Brushes.Cyan;
-                //    ellipseList[1].Color = Brushes.Cyan;
-                //    ellipseList[2].Color = Brushes.Cyan;
-                //    ellipseList[3].Color = Brushes.Cyan;
-                //    ellipseList[4].Color = Brushes.Cyan;
-                //    ellipseList[5].Color = Brushes.Cyan;
-                //    ellipseList2[0].Color = Brushes.Cyan;
-                //    ellipseList2[1].Color = Brushes.Cyan;
-                //    ellipseList3[0].Color = Brushes.Cyan;
-                //    ellipseList3[1].Color = Brushes.Cyan;
-                //    ellipseList3[2].Color = Brushes.Red;
-                //    if (ctor5 > 50)
-                //    {
-                //        isTimer = false;
-                //        ctTimer = 0;
-                //        string[] newMenuOptions = { "Start", "Back", "Assign Training" };
-                //        menuOptions = newMenuOptions;
-                //        ctt = 1;
-                //        isSwim = false;
-                //        isDetect = false;
-                //        isCamera = false;
-                //        isNewSwimmer = false;
-                //        isView = false;
-                //        isAccount = false;
-                //        isAssign = false;
-                //        isBack = true;
-                //        OpenForm(new Camera_Screen());
-                //        Console.WriteLine("bottom left: " + angel);
-                //    }
-                //    ctor = 0;
-                //    ctor1 = 0;
-                //    ctor2 = 0;
-                //    ctor3 = 0;
-                //    ctor4 = 0;
-                //    ctor5++;
-                //}
+                if (angel >= 3 && angel < 4 && !isClear)
+                {
+                    if (!isTimer)
+                    {
+                        isTimer = true;
+                    }
+                    ellipseList[0].Color = Brushes.Cyan;
+                    ellipseList[1].Color = Brushes.Cyan;
+                    ellipseList[2].Color = Brushes.Cyan;
+                    ellipseList[3].Color = Brushes.Cyan;
+                    ellipseList[4].Color = Brushes.Cyan;
+                    ellipseList[5].Color = Brushes.Cyan;
+                    ellipseList2[0].Color = Brushes.Cyan;
+                    ellipseList2[1].Color = Brushes.Cyan;
+                    ellipseList3[0].Color = Brushes.Cyan;
+                    ellipseList3[1].Color = Brushes.Red;
+                    ellipseList3[2].Color = Brushes.Cyan;
+                    if (ctor4 > 50)
+                    {
+                        isTimer = false;
+                        ctTimer = 0;
+                        isSwim = false;
+                        isDetect = false;
+                        isCamera = false;
+                        isNewSwimmer = false;
+                        isView = false;
+                        isAccount = false;
+                        isAssign = false;
+                        isAssignT = false;
+                        isBack = false;
+                        isBack1 = false;
+                        isClear = true;
+                        p.clear();
+                        Console.WriteLine("bottom left: " + angel);
+                    }
+                    ctor = 0;
+                    ctor1 = 0;
+                    ctor2 = 0;
+                    ctor3 = 0;
+                    ctor4++;
+                    ctor5 = 0;
+                }
             }
         }
 

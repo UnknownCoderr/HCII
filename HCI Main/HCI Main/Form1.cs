@@ -44,7 +44,7 @@ namespace HCI_Main
             //lgin.LoadCredentials();
             //if (lgin.CheckCredentials(textBox1.Text, textBox2.Text))
             //{
-            PieMenu f = new PieMenu();
+            Camera_Screen f = new Camera_Screen();
             this.Hide();
             f.ShowDialog();
             //}
