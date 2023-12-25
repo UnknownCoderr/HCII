@@ -23,7 +23,10 @@ namespace HCI_Main
         int ct2 = 0;
         int ct3 = 0;
         int ct4 = 0;
-
+        int count2 = 0;
+        bool right1 = true;
+        bool right2 = true;
+        int countcalssify = 0;
         public Form2()
         {
             InitializeComponent();
@@ -39,11 +42,7 @@ namespace HCI_Main
         private void Form2_Load(object sender, EventArgs e)
         {
             this.Text = "Swimming system";
-            if (c.isConnected)
-            {
-                c.recieveMessage();
            
-            }
             off = new Bitmap(ClientSize.Width, ClientSize.Height);
         }
 
@@ -54,8 +53,14 @@ namespace HCI_Main
 
         private void Tt_Tick(object sender, EventArgs e)
         {
-            if(c.isConnected)
+            if (c.isConnected)
             {
+                if (count2 == 0)
+                {
+                    c.recieveMessage();
+                    count2++;
+                }
+
                 check();
             }
         }
@@ -63,11 +68,33 @@ namespace HCI_Main
         {
             if (c.data == "'right'")
             {
-                if (count == 0)
+                if (count==0)
                 {
                     OpenForm(new View_Assigned_training());
                     count++;
+                    right1 = false;
+                    right2 = false;
                 }
+            }
+            if (c.data == "'left'")
+            {
+
+                if(count==0)
+                {
+                    OpenForm(new Camera_Screen());
+                    count++;
+                }
+
+            }
+            if (c.data == "'start'")
+            {
+
+                if (count == 0)
+                {
+                    OpenForm(new Camera_Screen());
+                    count++;
+                }
+
             }
         }
         private void OpenForm(Form NewForm)

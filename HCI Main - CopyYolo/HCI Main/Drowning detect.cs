@@ -64,7 +64,7 @@ namespace HCI_Main
 
         private void Drowning_detect_Load(object sender, EventArgs e)
         {
-            Process.Start("D:\\HCII\\HCI Main\\HCI Main\\bin\\Debug\\reacTIVision.exe");
+            //Process.Start("D:\\HCII\\HCI Main\\HCI Main\\bin\\Debug\\reacTIVision.exe");
         }
         private void Form_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
