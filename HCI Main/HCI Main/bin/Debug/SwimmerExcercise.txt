@@ -9,3 +9,10 @@ Swimmer2 , 5 , Butterfly Swimming
 Swimmer3 , 5 , Backstroke Swimming
 Swimmer6 , 555 , Butterfly Swimming
 Swimmer5 , 20 , Butterfly Swimming
+Swimmer2 , 5 , Backstroke Swimming
+Swimmer2 , 5 , Backstroke Swimming
+Swimmer3 , 5 , Backstroke Swimming
+Swimmer2 , 5 , Backstroke Swimming
+Swimmer4 , 5 , Backstroke Swimming
+Swimmer2 , 5 , Backstroke Swimming
+Swimmer5 , 5 , Backstroke Swimming
