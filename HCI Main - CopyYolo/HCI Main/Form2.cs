@@ -15,6 +15,7 @@ namespace HCI_Main
     public partial class Form2 : Form
     {
         public static ClientC c = new ClientC();
+        public static ClientC c2 = new ClientC();
         Bitmap off;
         int count = 0;
         Timer tt = new Timer();
@@ -35,6 +36,7 @@ namespace HCI_Main
             tt.Tick += Tt_Tick;
             tt.Start();
             c.connectToSocket("localhost", 3344);
+            //c2.connectToSocket("localhost", 3333);
         }
 
         
@@ -63,8 +65,13 @@ namespace HCI_Main
                 check();
             }
         }
+      
         public void check()
         {
+            if(c.data== "Numeric-3")
+            {
+                MessageBox.Show("ssssssssssssssss");
+            }
             if (c.data == "'right'")
             {
                 if (count==0)

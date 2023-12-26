@@ -18,6 +18,8 @@ namespace HCI_Main
         Bitmap off;
         int count = 0;
         int count2 = 0;
+        bool isright = false;
+        bool isleft = false;
         public Camera_Screen()
         {
             InitializeComponent();
@@ -60,17 +62,21 @@ namespace HCI_Main
             }
             if (c.data == "'right'")
             {
-                if (count == 0)
+                if (!isright)
                 {
-                    OpenForm(new Add_swimmer());
-                    count++;
+                    isright = true;
+                    Add_swimmer f = new Add_swimmer();
+                    f.ShowDialog();
                 }
             }
             if (c.data == "'left'")
             {
-                if (count == 0)
+                if (!isleft)
                 {
-                    OpenForm(new Drowning_detect());
+                    isleft=true;
+                    Drowning_detect f=new Drowning_detect();
+                    f.ShowDialog();
+                    //OpenForm(new Drowning_detect());
                     count++;
                 }
             }

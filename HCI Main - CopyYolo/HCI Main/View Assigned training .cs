@@ -15,15 +15,19 @@ namespace HCI_Main
     public partial class View_Assigned_training : Form
     {
         public static ClientC c = new ClientC();
+        
         Timer tt = new Timer();
         int count = 0;
         int count2 = 0;
+        bool isright = false;
+        bool isleft = false;
         public View_Assigned_training()
         {
             InitializeComponent();
             tt.Tick += Tt_Tick;
             tt.Start();
             c.connectToSocket("localhost", 3344);
+            
         }
 
         private void Tt_Tick(object sender, EventArgs e)
@@ -39,21 +43,28 @@ namespace HCI_Main
                 check();
             }
         }
+        
         public void check()
         {
             if (c.data == "'right'")
             {
-                if (count == 0)
+                if (!isright)
                 {
-                    OpenForm(new Camera_Screen());
+                    isright = false;
+                    Camera_Screen f= new Camera_Screen();
+                    f.ShowDialog();
+                    //OpenForm(new Camera_Screen());
                     count++;
                 }
             }
             if (c.data == "'left'")
             {
-                if (count == 0)
+                if (!isleft)
                 {
-                    OpenForm(new Add_swimmer());
+                    isleft = true;
+                    Add_swimmer f= new Add_swimmer();
+                    f.ShowDialog();
+                    //OpenForm(new Add_swimmer());
                     count++;
                 }
             }

@@ -1,29 +1,35 @@
 from ultralytics import YOLO
 import cv2
+import numpy as np
+from collections import Counter
 
 model = YOLO("Best_Model.pt")
+camera = cv2.VideoCapture(0)
+num_frames = 20
+captured_frames = []
 
-results = model.predict(source="0", show=True, conf=0.5, verbose=True)
-# print(model.predictor.predict_cli(source="0"))
-# cap = cv2.VideoCapture(0)
-# while cap.isOpened():
-#     # Read a frame from the video
-#     success, frame = cap.read()
-#     frame = cv2.resize(frame, (640, 640))
-#     if success:
-#         # Run YOLOv8 tracking on the frame, persisting tracks between frames
-#         results = model.track(frame, conf=0.7, iou=0.9, persist=True)
+for _ in range(num_frames):
+    ret, frame = camera.read()
 
-#         # Check if there are any detections
-#         if results and results[0]['xyxy'] is not None and len(results[0]['xyxy']) > 0:
-#             boxes = results[0]['xyxy'].cpu()
-#             classses = results[0]['xyxy'].cls.int().cpu().tolist()
-#             track_ids = results[0]['xyxy'].id.int().cpu().tolist()
+    if not ret:
+        print("Failed to grab frame")
+        break
 
-#             # Rest of your code...
-#             for box, track_id, classs in zip(boxes, track_ids, classses):
-#                 if 29 in classses:
-#                     position = classses.index(29)
-#                     x1, y1, not1, not2 = box.cpu().numpy().astype(int)
-#                     point1 = (int(x1), int(y1))
-#                     # Continue with the rest of your code...
+    cv2.imshow("test", frame)
+    captured_frames.append(frame)
+camera.release()
+
+# Predict using the captured frames
+predicted_classes = []
+results = model(captured_frames)  # list of Results objects -> perform inference using the model
+names = model.names
+
+for r in results:
+    for c in r.boxes.cls:
+        predicted_classes.append(names[int(c)])
+
+# Find the most frequent predicted class
+most_common_class = Counter(predicted_classes).most_common(1)
+final_predicted_class = most_common_class[0][0]
+
+print("Final Predicted Class:", final_predicted_class)
