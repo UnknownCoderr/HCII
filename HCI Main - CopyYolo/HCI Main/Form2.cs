@@ -34,7 +34,7 @@ namespace HCI_Main
             this.Load += Form2_Load;
             tt.Tick += Tt_Tick;
             tt.Start();
-            c.connectToSocket("localhost", 3333);
+            c.connectToSocket("localhost", 3344);
         }
 
         
@@ -60,7 +60,6 @@ namespace HCI_Main
                     c.recieveMessage();
                     count2++;
                 }
-
                 check();
             }
         }
@@ -91,7 +90,7 @@ namespace HCI_Main
 
                 if (count == 0)
                 {
-                    OpenForm(new Camera_Screen());
+                    OpenForm(new Add_swimmer());
                     count++;
                 }
 

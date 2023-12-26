@@ -21,13 +21,14 @@ namespace HCI_Main
         Timer tt = new Timer();
         int ct = 0;
         int count = 0;
+        int count2 = 0;
         public Form1()
         {
             InitializeComponent();
             tt.Tick += Tt_Tick;
             tt.Interval = 2000;
             tt.Start();
-            //c.connectToSocket("localhost", 7000);
+            //c.connectToSocket("localhost", 3344);
         }
 
         private void Tt_Tick(object sender, EventArgs e)
@@ -43,8 +44,13 @@ namespace HCI_Main
             }
             if(c.isConnected)
             {
-                //check();
+                if(count2==0)
+                {
+                    c.recieveMessage();
+                    count2++;
+                }
             }
+            check();
         }
         
         private void button1_Click_1(object sender, EventArgs e)
@@ -63,13 +69,13 @@ namespace HCI_Main
         }
         public void check()
         {
-            if (c.data == "'right'")
+            if (c.data == "'start'")
             {
                 if (count == 0)
                 {
 
                     Form2 f = new Form2();
-                    this.Hide();
+                    this.Close();
                     f.ShowDialog();
                     count++;
                 }
