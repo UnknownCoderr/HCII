@@ -1,29 +1,64 @@
 from ultralytics import YOLO
 import cv2
+import numpy as np
+from collections import Counter
+import socket
 
-model = YOLO("Best_Model.pt")
+def reco(conn):
+    model = YOLO("Best_Model.pt")
+    camera = cv2.VideoCapture(0)
+    frame_counter = 0
+    num_frames_per_batch = 20
+    captured_frames = []
+    while True:
+        ret, frame = camera.read()
 
-results = model.predict(source="0", show=True, conf=0.5, verbose=True)
-# print(model.predictor.predict_cli(source="0"))
-# cap = cv2.VideoCapture(0)
-# while cap.isOpened():
-#     # Read a frame from the video
-#     success, frame = cap.read()
-#     frame = cv2.resize(frame, (640, 640))
-#     if success:
-#         # Run YOLOv8 tracking on the frame, persisting tracks between frames
-#         results = model.track(frame, conf=0.7, iou=0.9, persist=True)
+        if not ret:
+            print("Failed to grab frame")
+            break
 
-#         # Check if there are any detections
-#         if results and results[0]['xyxy'] is not None and len(results[0]['xyxy']) > 0:
-#             boxes = results[0]['xyxy'].cpu()
-#             classses = results[0]['xyxy'].cls.int().cpu().tolist()
-#             track_ids = results[0]['xyxy'].id.int().cpu().tolist()
+        cv2.imshow("test", frame)
+        captured_frames.append(frame)
+        frame_counter += 1
 
-#             # Rest of your code...
-#             for box, track_id, classs in zip(boxes, track_ids, classses):
-#                 if 29 in classses:
-#                     position = classses.index(29)
-#                     x1, y1, not1, not2 = box.cpu().numpy().astype(int)
-#                     point1 = (int(x1), int(y1))
-#                     # Continue with the rest of your code...
+        if frame_counter == num_frames_per_batch:
+            # Predict using the captured frames
+            predicted_classes = []
+            results = model(captured_frames,conf=0.4)  # list of Results objects -> perform inference using the model
+            names = model.names
+
+            for r in results:
+                for c in r.boxes.cls:
+                    predicted_classes.append(names[int(c)])
+
+            # Find the most frequent predicted class
+            most_common_class = Counter(predicted_classes).most_common(1)
+
+            # Check if the most_common_class list is not empty before accessing its elements
+            if most_common_class:
+                final_predicted_class = most_common_class[0][0]
+                msg=("Class:"+str(final_predicted_class))
+                msg = bytes(final_predicted_class, 'utf-8')
+            else:
+                msg="None"
+                msg = bytes(final_predicted_class, 'utf-8')
+            conn.send(msg) 
+            print(msg)
+            # Reset frame counter and captured frames for the next batch
+            frame_counter = 0
+            captured_frames = []
+
+        # Check for key press to exit the loop (press 'q' to exit)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # Release the camera
+    camera.release()
+    cv2.destroyAllWindows()
+
+
+MySocket = socket.socket()
+MySocket.bind(('localhost', 3333))
+MySocket.listen(5)
+conn, addr = MySocket.accept()
+reco(conn)

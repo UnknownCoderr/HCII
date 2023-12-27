@@ -15,6 +15,7 @@ namespace HCI_Main
     public partial class Form2 : Form
     {
         public static ClientC c = new ClientC();
+        public static ClientC c2 = new ClientC();
         Bitmap off;
         int count = 0;
         Timer tt = new Timer();
@@ -34,7 +35,8 @@ namespace HCI_Main
             this.Load += Form2_Load;
             tt.Tick += Tt_Tick;
             tt.Start();
-            c.connectToSocket("localhost", 3333);
+            //c.connectToSocket("localhost", 3344);
+            c2.connectToSocket("localhost", 3333);
         }
 
         
@@ -60,12 +62,25 @@ namespace HCI_Main
                     c.recieveMessage();
                     count2++;
                 }
-
                 check();
             }
+            if (c2.isConnected)
+            {
+                if (count2 == 0)
+                {
+                    c2.recieveMessage();
+                    count2++;
+                }
+                
+            }
         }
+      
         public void check()
         {
+            if(c.data== "Numeric-3")
+            {
+                MessageBox.Show("ssssssssssssssss");
+            }
             if (c.data == "'right'")
             {
                 if (count==0)
@@ -91,7 +106,7 @@ namespace HCI_Main
 
                 if (count == 0)
                 {
-                    OpenForm(new Camera_Screen());
+                    OpenForm(new Add_swimmer());
                     count++;
                 }
 
