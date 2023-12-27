@@ -75,16 +75,16 @@ namespace HCI_Main
                 
             }
         }
-      
+
         public void check()
         {
-            if(c.data== "Numeric-3")
+            if (c.data == "Numeric-3")
             {
                 MessageBox.Show("ssssssssssssssss");
             }
             if (c.data == "'right'")
             {
-                if (count==0)
+                if (count == 0)
                 {
                     OpenForm(new View_Assigned_training());
                     count++;
@@ -95,7 +95,7 @@ namespace HCI_Main
             if (c.data == "'left'")
             {
 
-                if(count==0)
+                if (count == 0)
                 {
                     OpenForm(new Camera_Screen());
                     count++;
