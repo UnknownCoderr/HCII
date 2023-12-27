@@ -17,3 +17,4 @@ Swimmer4 , 5 , Backstroke Swimming
 Swimmer2 , 5 , Backstroke Swimming
 Swimmer5 , 5 , Backstroke Swimming
 Swimmer3 , 4 , ButterFly
+Swimmer2 , 2 , BackStroke
