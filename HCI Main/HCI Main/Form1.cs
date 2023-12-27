@@ -41,17 +41,17 @@ namespace HCI_Main
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //lgin.LoadCredentials();
-            //if (lgin.CheckCredentials(textBox1.Text, textBox2.Text))
-            //{
-            Camera_Screen f = new Camera_Screen();
-            this.Hide();
-            f.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Sign up please");
-            //}
+            lgin.LoadCredentials();
+            if (lgin.CheckCredentials(textBox1.Text, textBox2.Text))
+            {
+                Form2 f = new Form2();
+                this.Hide();
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Sign up please");
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

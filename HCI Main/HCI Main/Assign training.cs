@@ -15,13 +15,28 @@ namespace HCI_Main
 {
     public partial class Assign_training : Form
     {
-        public List<string> exercise = new List<string>();
-
+        public List<string> exercise = new List<string>(); 
+        
         public Assign_training()
         {
             InitializeComponent();
         }
 
+        public void assignComboBox(string swimmer)
+        {
+            comboBox1.Text = swimmer;
+        }
+
+        public void assignCount(string count)
+        {
+            textBox1.Text = count;
+        }
+
+        public void assignSWimmStyle(string style)
+        {
+            label7.Text = style;
+            Console.WriteLine(style);
+        }
 
         private void Assign_training_Load(object sender, EventArgs e)
         {
@@ -60,7 +75,7 @@ namespace HCI_Main
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            label7.Text = "Butterfly Swimming";
+            label7.Text = "Butterfly Swimming";          
         }
 
         private void button1_Click(object sender, EventArgs e)
