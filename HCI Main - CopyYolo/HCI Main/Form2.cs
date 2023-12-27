@@ -51,6 +51,7 @@ namespace HCI_Main
         private void Form2_Paint(object sender, PaintEventArgs e)
         {
             DrawScene(e.Graphics);
+            
         }
 
         private void Tt_Tick(object sender, EventArgs e)
