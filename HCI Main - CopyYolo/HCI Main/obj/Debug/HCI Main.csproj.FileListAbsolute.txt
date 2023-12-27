@@ -283,3 +283,75 @@ D:\HCI\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.csproj.CoreCompileIn
 D:\HCI\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.csproj.CopyComplete
 D:\HCI\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.exe
 D:\HCI\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.pdb
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\HCI Main.exe.config
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\HCI Main.exe
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\HCI Main.pdb
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\Emgu.CV.UI.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\Emgu.CV.UI.GL.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\Emgu.CV.World.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\OpenTK.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\OpenTK.GLControl.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Buffers.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Memory.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Text.Json.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.ValueTuple.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\ZedGraph.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\Emgu.CV.UI.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\Emgu.CV.UI.GL.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\Emgu.CV.World.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\OpenTK.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\OpenTK.GLControl.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Buffers.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Memory.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Text.Json.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\System.ValueTuple.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\ZedGraph.xml
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\Interop.WMPLib.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.csproj.AssemblyReference.cache
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.csproj.SuggestedBindingRedirects.cache
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\Interop.WMPLib.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.csproj.ResolveComReference.cache
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Account_Settings.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Add_swimmer.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Assign_training.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Camera_Screen.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Change_Pass.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Change_Passowrd.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Drowning_detect.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Form1.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Form2.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Properties.Resources.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.SignUp.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.Swim_Classification.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.TUIO.PieMenu.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI_Main.View_Assigned_training.resources
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.csproj.GenerateResource.cache
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.csproj.CoreCompileInputs.cache
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.csproj.CopyComplete
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.exe
+C:\Users\Mohamed\Desktop\HCII\HCI Main - CopyYolo\HCI Main\obj\Debug\HCI Main.pdb
