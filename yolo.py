@@ -22,19 +22,19 @@ def reco(conn):
         frame_counter += 1
 
         if frame_counter == num_frames_per_batch:
-            # Predict using the captured frames
+            
             predicted_classes = []
-            results = model(captured_frames,conf=0.4)  # list of Results objects -> perform inference using the model
+            results = model(captured_frames,conf=0.4)  
             names = model.names
 
             for r in results:
                 for c in r.boxes.cls:
                     predicted_classes.append(names[int(c)])
 
-            # Find the most frequent predicted class
+           
             most_common_class = Counter(predicted_classes).most_common(1)
 
-            # Check if the most_common_class list is not empty before accessing its elements
+            
             if most_common_class:
                 final_predicted_class = most_common_class[0][0]
                 msg=("Class:"+str(final_predicted_class))
@@ -44,15 +44,15 @@ def reco(conn):
                 msg = bytes(final_predicted_class, 'utf-8')
             conn.send(msg) 
             print(msg)
-            # Reset frame counter and captured frames for the next batch
+            
             frame_counter = 0
             captured_frames = []
 
-        # Check for key press to exit the loop (press 'q' to exit)
+        
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    # Release the camera
+    
     camera.release()
     cv2.destroyAllWindows()
 
