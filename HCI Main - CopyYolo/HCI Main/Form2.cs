@@ -35,8 +35,8 @@ namespace HCI_Main
             this.Load += Form2_Load;
             tt.Tick += Tt_Tick;
             tt.Start();
-            c.connectToSocket("localhost", 3344);
-            //c2.connectToSocket("localhost", 3333);
+            //c.connectToSocket("localhost", 3344);
+            c2.connectToSocket("localhost", 3333);
         }
 
         
@@ -63,6 +63,15 @@ namespace HCI_Main
                     count2++;
                 }
                 check();
+            }
+            if (c2.isConnected)
+            {
+                if (count2 == 0)
+                {
+                    c2.recieveMessage();
+                    count2++;
+                }
+                
             }
         }
       
